@@ -56,9 +56,9 @@ public class EventDBHelper extends SQLiteOpenHelper {
 
     }
     public void createDefaultEvent(){
-        Event event1=new Event(0,"Họp phụ huynh tổng kết học kỳ","07:00","11:00","15/04/2022","Phòng học C2");
-        Event event2=new Event(0,"Hội trại 26-3","07:00","17:00","26/03/2022","Phòng học C2");
-        Event event3=new Event(0,"Va lung tung 14-2","00:00","24:00","14/02/2022","Phòng học C2");
+        Event event1=new Event(0,"Họp phụ huynh tổng kết học kỳ","07:00","11:00","15/04/2022","Phòng học 407-A2");
+        Event event2=new Event(0,"Hội trại 26-3","07:00","17:00","26/03/2024","Phòng học 408-A3");
+        Event event3=new Event(0,"Vui hoc  14-2","00:00","24:00","14/02/2024","Phòng học 403-A5");
 
         this.AddEvent(event1);
         this.AddEvent(event2);

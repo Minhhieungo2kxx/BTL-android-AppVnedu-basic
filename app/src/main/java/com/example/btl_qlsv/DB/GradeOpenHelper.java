@@ -46,10 +46,7 @@ public class GradeOpenHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    /**
-     * @author Phong-Kaster
-     * @param grade | object | the grade which is added to TABLE_GRADE
-     */
+
     public void create(Grade grade)
     {
         /*Step 1*/
@@ -70,10 +67,7 @@ public class GradeOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.close();
     }
 
-    /**
-     * @author Phong-Kaster
-     * @param grade | object | the grade which is deleted from TABLE_GRADE
-     */
+
     public void delete(Grade grade)
     {
         /*Step 1*/
@@ -146,11 +140,7 @@ public class GradeOpenHelper extends SQLiteOpenHelper {
         return name;
     }
 
-    /**
-     *
-     * @param teacherId which is teacher Id
-     * @return grade id which teacher having @id is host
-     */
+
     public String retriveIdByTeachId(String teacherId)
     {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -165,11 +155,7 @@ public class GradeOpenHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    /**
-     * @author Phong-Kaster
-     * retrieve number of grade
-     * @return int quantity
-     */
+
     private int count()
     {
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -183,10 +169,7 @@ public class GradeOpenHelper extends SQLiteOpenHelper {
         return quantity;
     }
 
-    /**
-     * @author Phong-Kaster
-     * create default records if there is nothing in Grade table
-     */
+
     public void createDefaultRecords()
     {
         /*Step 1*/
@@ -195,9 +178,9 @@ public class GradeOpenHelper extends SQLiteOpenHelper {
             return;
 
         /*Step 2*/
-        Grade grade1 = new Grade(1,"D18CQCN01", 1);
-        Grade grade2 = new Grade(2,"D18CQCN02", 2);
-        Grade grade3 = new Grade(3,"D18CQCN03", 3);
+        Grade grade1 = new Grade(1,"CNTT-2", 1);
+        Grade grade2 = new Grade(2,"CNTT-2", 2);
+        Grade grade3 = new Grade(3,"CNTT-2", 3);
 
         this.create(grade1);
         this.create(grade2);

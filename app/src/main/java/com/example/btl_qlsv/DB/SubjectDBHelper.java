@@ -139,9 +139,9 @@ public class SubjectDBHelper extends SQLiteOpenHelper
 
     public void createDefaultSubject()  {
 
-        Subject subject1 = new Subject(0,"Toan",1,2,"2024-2025");
-        Subject subject2 = new Subject(0,"Van",1,2,"2024-2025");
-        Subject subject3 = new Subject(0,"Anh",1,2,"2024-2025");
+        Subject subject1 = new Subject(1,"Toan",1,2,"2024-2025");
+        Subject subject2 = new Subject(2,"Van",1,2,"2024-2025");
+        Subject subject3 = new Subject(3,"Anh",1,2,"2024-2025");
         this.AddSubject(subject1);
         this.AddSubject(subject2);
         this.AddSubject(subject3);

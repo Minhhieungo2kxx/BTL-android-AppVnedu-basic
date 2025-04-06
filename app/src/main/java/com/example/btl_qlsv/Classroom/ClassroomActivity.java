@@ -47,40 +47,6 @@ public class ClassroomActivity extends AppCompatActivity {
 
 
 
-    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        /*Step 1*/
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_classroom);
-//
-//        weakActivity = new WeakReference<>(ClassroomActivity.this);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-//            session = new Session(ClassroomActivity.this);
-//        }
-//        /*The command line belows that make sure that keyboard only pops up only if user clicks into EditText */
-//        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-//
-//        /*Step 2*/
-//        gradeOpenHelper.deleteAndCreatTable();
-//        gradeObjects = gradeOpenHelper.retrieveAllGrades();
-//
-//        studentOpenHelper.deleteAndCreateTable();
-//        objects = studentOpenHelper.retrieveAllStudents();
-//
-//
-//        /*Step 3*/
-//        setControl();
-//
-//
-//        /*Step 4*/
-//        setEvent();
-//        searchByKeyword();
-//
-//        /*Step 5*/
-//        String teacherId = session.get("teacherId");
-//        String value = gradeOpenHelper.retriveIdByTeachId( teacherId );
-//        session.set("gradeId", value );
-//    }
 
     protected void onCreate(Bundle savedInstanceState) {
         /*Step 1*/
@@ -138,13 +104,7 @@ public class ClassroomActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * @author Phong-Kaster
-     * set up events that these components are triggered
-     *
-     * Step 1: declare list view & list view model
-     * Step 2: listen events which is triggered by component
-     * */
+
     private void setEvent()
     {
         /*Step 1*/

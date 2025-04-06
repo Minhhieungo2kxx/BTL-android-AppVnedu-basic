@@ -48,6 +48,7 @@
             android:layout_width="351dp"
             android:layout_height="wrap_content"
             android:hint="@string/username"
+            android:text="1"
             android:textColor="@color/black" />
 
         <Space
@@ -69,6 +70,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:text="utc@123"
             android:textColor="@color/black" />
 
         <Space

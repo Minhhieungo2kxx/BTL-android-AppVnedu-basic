@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -60,7 +61,8 @@ public class ScoreStudentActivity extends AppCompatActivity {
     StudentOpenHelper studentDB = new StudentOpenHelper(this);
 
     TextView tvSubject;
-    SearchView searchView;
+    androidx.appcompat.widget.SearchView searchView;
+
     String teacher;
     String grade;
     String gradeName;
@@ -140,6 +142,8 @@ public class ScoreStudentActivity extends AppCompatActivity {
     {
         listView = findViewById(R.id.score_student_list_view);
         searchView = findViewById(R.id.score_student_search_bar);
+
+
         tvSubject = findViewById(R.id.score_student_subject_name);
         buttonSave = findViewById(R.id.button_score_student_save_pdf);
         tvSubject.setText("Môn học: " + subject.getTenMH());
@@ -164,7 +168,7 @@ public class ScoreStudentActivity extends AppCompatActivity {
             finish();
             Log.e("ScoreStudentActivity", "lỗi lấy danh sách sinh viên bị rỗng");
         }
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        ((androidx.appcompat.widget.SearchView) searchView).setOnQueryTextListener(new androidx.appcompat.widget.SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 ScoreStudentActivity.this.listViewModel.getFilter().filter(query);
@@ -229,10 +233,10 @@ public class ScoreStudentActivity extends AppCompatActivity {
         }
         pdfDocument.finishPage(myPage);
 
-        File file = new File(getApplicationContext().getFilesDir(), subject.getMaMH()
-                + "-" + subject.getTenMH()
-                + "-" + gradeName
-                + ".pdf");
+
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                subject.getMaMH() + "-" + subject.getTenMH() + "-" + gradeName + ".pdf");
+
         try {
             pdfDocument.writeTo(new FileOutputStream(file));
             Toast.makeText(ScoreStudentActivity.this, "PDF file generated successfully."

@@ -50,10 +50,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    /**
-     * @author Phong-Kaster
-     * @param student | object | the grade which is added to TABLE_GRADE
-     */
+
     public void create(Student student)
     {
         /*Step 1*/
@@ -81,10 +78,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
         sqLiteDatabase.close();
     }
 
-    /**
-     * @author Phong-Kaster
-     * @param student | object | the grade which is deleted from TABLE_GRADE
-     */
+
     public void delete(Student student)
     {
         /*Step 1*/
@@ -129,10 +123,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
     }
 
-    /**
-     * @author Phong-Kaster
-     * retrieve all students from TABLE STUDENT
-     * */
+
     public ArrayList<Student> retrieveAllStudents()
     {
         /*Step 1*/
@@ -170,11 +161,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
         return objects;
     }
 
-    /**
-     * Thuận lấy danh sách học torng trong 1 lớp
-     * @param grade
-     * @return
-     */
+
     public ArrayList<Student> getStudentInGrade(String grade)
     {
         /*Step 1*/
@@ -252,11 +239,8 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
         return objects;
     }
 
-    /**
-     * @author Phong-Kaster
-     * retrieve number of grade
-     * @return int quantity
-     */
+
+
     private int count()
     {
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -271,7 +255,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * @author Ngdanghau
+
      * count by gender
      * @return list report total
      */
@@ -300,7 +284,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * @author Phong-Kaster
+
      * create default records if there is nothing in Grade table
      */
     private void createDefaultRecords()
@@ -311,14 +295,14 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
             return;
 
         /*Step 2*/
-        Student student1 = new Student("Thanh","Phong",0,"01/05/2000", 1);
-        Student student2 = new Student("Dang","Hau",0,"20/01/2000", 1);
-        Student student3 = new Student("Dinh","Khang",0,"24/03/2000", 1);
-        Student student4 = new Student("Duc","Thuan",0,"12/03/2000", 1);
-        Student student5 = new Student("Van","Chung",0,"21/07/2000", 1);
-        Student student6 = new Student("Ngoc","Thanh",1,"12/01/2000", 1);
-        Student student7 = new Student("Thu","Ha",1,"30/08/2000", 1);
-        Student student8 = new Student("Truc","Thy",1,"04/12/2000", 1);
+        Student student1 = new Student("Thanh","Phong",0,"01/05/2003", 1);
+        Student student2 = new Student("Dang","Hau",0,"20/01/2003", 1);
+        Student student3 = new Student("Dinh","Khang",0,"24/03/2003", 1);
+        Student student4 = new Student("Duc","Thuan",0,"12/03/2003", 1);
+        Student student5 = new Student("Van","Chung",0,"21/07/2003", 1);
+        Student student6 = new Student("Ngoc","Thanh",1,"12/01/2003", 1);
+        Student student7 = new Student("Thu","Ha",1,"30/08/2003", 1);
+        Student student8 = new Student("Truc","Thy",1,"04/12/2003", 1);
         /*Step 3*/
         this.create(student1);
         this.create(student2);

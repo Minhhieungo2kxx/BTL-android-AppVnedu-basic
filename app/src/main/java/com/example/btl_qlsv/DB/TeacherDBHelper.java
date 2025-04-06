@@ -52,7 +52,7 @@ public class TeacherDBHelper extends SQLiteOpenHelper {
     public void createDefaultTeachersIfNeed()  {
         int count = this.getTeachersCount();
         if(count == 0 ) {
-            Teacher Teacher1 = new Teacher(1, "Nguyễn Bích Thủy", "utc@123");
+            Teacher Teacher1 = new Teacher(1, "Lương Thái Lê", "utc@123");
             Teacher Teacher2 = new Teacher(2, "Lê Văn Hiền", "123456");
             Teacher Teacher3 = new Teacher(3, "Trần Huy Hoàng", "123456");
             this.addTeacher(Teacher1);

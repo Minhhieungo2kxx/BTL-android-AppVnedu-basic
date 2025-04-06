@@ -58,9 +58,7 @@ public class SettingsAccountActivity extends AppCompatActivity {
         setEvent();
     }
 
-    /**
-     * @author Phong-Kaster
-     * */
+
     private void setControl()
     {
         name = findViewById(R.id.linearLayoutName);
@@ -69,9 +67,7 @@ public class SettingsAccountActivity extends AppCompatActivity {
         buttonAvatar = findViewById(R.id.settingsAccountButtonChangeAvatar);
     }
 
-    /**
-     * @author Phong-Kaster
-     * */
+
     private void setEvent()
     {
 //        teacherName.setText( teacher.getName() );
@@ -164,10 +160,7 @@ public class SettingsAccountActivity extends AppCompatActivity {
         return popupView;
     }
 
-    /**
-     * @author Phong-Kaster
-     * this functions instanciate and listen event when we want to custom account's name
-     * */
+
     private void handleEventNameLayout(View view)
     {
         /*Step 1*/

@@ -48,7 +48,7 @@ public class ClassroomCreationActivity extends AppCompatActivity {
         setEvent();
 
         String today = day + "/" + month + "/" + year;
-        birthday.setText("01/05/2000");
+        birthday.setText("01/05/2003");
     }
 
     private void setControl()

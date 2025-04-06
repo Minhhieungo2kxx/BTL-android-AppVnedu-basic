@@ -1,6 +1,8 @@
 package com.example.btl_qlsv;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -45,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setControl()
     {
-        buttonHomeStatistic = findViewById(R.id.buttonHomeStatistic);
+//        buttonHomeStatistic = findViewById(R.id.buttonHomeStatistic);
         buttonHomeClassroom = findViewById(R.id.buttonHomeClassroom);
 
         buttonHomeSubject = findViewById(R.id.buttonHomeSubject);
@@ -61,14 +63,7 @@ public class HomeActivity extends AppCompatActivity {
     @SuppressLint("RestrictedApi")
     private void setEvent(){
 
-        /*Step 1*/
-        buttonHomeStatistic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, StatisticActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         /*Step 2*/
         buttonHomeClassroom.setOnClickListener(new View.OnClickListener() {
@@ -120,15 +115,25 @@ public class HomeActivity extends AppCompatActivity {
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (appState != null && appState.getTeacher() != null) {
-                    appState.setTeacher(null);
-                }
-                Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-                Toast.makeText(HomeActivity.this, "Đăng xuất thành công !", Toast.LENGTH_LONG).show();
-                startActivity(intent);
-                finish(); // optional: thoát luôn khỏi HomeActivity
+                new AlertDialog.Builder(HomeActivity.this)
+                        .setTitle("Xác nhận đăng xuất")
+                        .setMessage("Bạn có chắc chắn muốn đăng xuất?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (appState != null && appState.getTeacher() != null) {
+                                    appState.setTeacher(null);
+                                }
+                                Toast.makeText(HomeActivity.this, "Đăng xuất thành công!", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", null) // Không làm gì, đóng dialog
+                        .show();
             }
         });
+
 
     }
 }
