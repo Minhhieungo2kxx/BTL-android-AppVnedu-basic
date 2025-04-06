@@ -1,2 +1,2 @@
 # BTL-android-AppVnedu-basic
-begin android studio
+begin android studio basic
