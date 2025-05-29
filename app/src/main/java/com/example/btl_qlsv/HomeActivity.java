@@ -47,15 +47,26 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setControl()
     {
-//        buttonHomeStatistic = findViewById(R.id.buttonHomeStatistic);
+        buttonHomeStatistic = findViewById(R.id.buttonHomeStatistic);
+        //thuong-logout
         buttonHomeClassroom = findViewById(R.id.buttonHomeClassroom);
 
+        //hieu-dangnhap
         buttonHomeSubject = findViewById(R.id.buttonHomeSubject);
+
+        //nam
         buttonHomeEvent = findViewById(R.id.buttonHomeEvent);
 
+        //viet
         buttonHomeScore = findViewById(R.id.buttonHomeScore);
+
+        //viet
         buttonHomeAccount = findViewById(R.id.buttonHomeAccount);
+
+        //nam
         buttonSetting = findViewById(R.id.buttonSetting);
+
+        //thuong
         buttonLogout = findViewById(R.id.buttonLogout);
     }
 
@@ -63,6 +74,14 @@ public class HomeActivity extends AppCompatActivity {
     @SuppressLint("RestrictedApi")
     private void setEvent(){
 
+        /*Step 1*/
+        buttonHomeStatistic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, StatisticActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         /*Step 2*/

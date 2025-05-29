@@ -1,7 +1,14 @@
 package com.example.btl_qlsv;
 
 
+import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.BatteryManager;
 import android.os.Bundle;
 
 import android.view.View;
@@ -137,6 +144,79 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Tạo dữ liệu mẫu thành công !", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(baterylow,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        registerReceiver(conectInternet,new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+        registerReceiver(airplane,new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED));
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(baterylow);
+        unregisterReceiver(conectInternet);
+        unregisterReceiver(airplane);
+    }
+
+    public BroadcastReceiver baterylow=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int level=intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+            int sacle=intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+            float pin=(level*100)/(float)(sacle);
+            if(pin<20){
+                Showalert("Pin yếu","Pin chỉ còn "+(int)pin+" % "+",Vui lòng cắm sạc để có thể sử dụng tốt hơn !");
+            }
+        }
+    };
+
+    public BroadcastReceiver conectInternet=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(!checkInternet()){
+                Showalert("Mất kết nối Internet","Vui lòng kiểm tra lại dữ liệu mạng");
+            }
+            else{
+                Showalert("Kết nối Internet","Kết nối mạng đã được khôi phục");
+            }
+
+        }
+    };
+
+    public boolean checkInternet(){
+        ConnectivityManager cm=(ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo info=cm.getActiveNetworkInfo();
+        return info!=null && info.isConnectedOrConnecting();
+
+    }
+
+    public BroadcastReceiver airplane=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())){
+                boolean isModeairplane=intent.getBooleanExtra("state", false);
+                if(isModeairplane){
+                    Showalert("Chế độ máy bay đã bật","Một số chức năng sẽ bị hạn chế");
+                }
+                else{
+                    Showalert("Chế độ máy bay đã tắt","Bạn có thế sử dụng full chức năng");
+                }
+            }
+        }
+    };
+
+
+
+    public void Showalert(String tile, String message){
+        new AlertDialog.Builder(this)
+                .setTitle(tile)
+                .setMessage(message)
+                .setPositiveButton("Ok", null)
+                .show();
     }
 
     public void gotoHome() {

@@ -42,7 +42,7 @@ public class SubjectDBHelper extends SQLiteOpenHelper
         String CREATE_TABLE =
                 String.format(
                         "CREATE TABLE %s ( %s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT, %s INTEGER, %s TEXT , %s INTEGER  )",
-                        TABLE_NAME, COLUMN_mamh,                       COLUMN_tenmh,COLUMN_hocky,COLUMN_namhoc,COLUMN_heso);
+                        TABLE_NAME, COLUMN_mamh,COLUMN_tenmh,COLUMN_hocky,COLUMN_namhoc,COLUMN_heso);
         db.execSQL(CREATE_TABLE);
     }
 

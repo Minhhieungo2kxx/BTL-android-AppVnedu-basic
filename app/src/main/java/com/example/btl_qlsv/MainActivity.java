@@ -1,6 +1,13 @@
 package com.example.btl_qlsv;
 
+import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.BatteryManager;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -35,4 +42,5 @@ public class MainActivity extends AppCompatActivity {
         };
         welcomeThread.start();
     }
+
 }
